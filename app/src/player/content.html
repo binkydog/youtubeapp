@@ -1,4 +1,4 @@
-<md-content flex id="content">
-    <md-button ng-click='signIn()' ng-hide='model.isAuthenticated'>Sign in to You Tube</md-button>
-    {{model.isAuthenticated}}
+<md-content layout="column" layout-align="center center" flex id="content">
+    <md-button class="md-raised md-primary md-button md-default-theme" ng-click="signIn()" ng-hide="model.isAuthenticated">Sign in to You Tube</md-button>
+    <div flex id="player" ng-hide="!model.isAuthenticated"></div>
 </md-content>

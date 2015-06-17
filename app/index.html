@@ -1,66 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" >
-  <head>
-    <title>You Tuber!</title>
+<html lang="en">
 
+<head>
+    <title>You Tuber!</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
-    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
-    <link rel="stylesheet" href="assets/app.css"/>
-  </head>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/app.css" />
+</head>
 
-  <body ng-app="videoApp" layout="row" ng-controller="playerCtrl">
-
-  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
-                md-component-id="left"
-                md-is-locked-open="$mdMedia('gt-sm')">
-
-     <md-toolbar class="md-whiteframe-z1">
-        <h1>Find Videos</h1>
-      </md-toolbar>
-      <!-- <md-list>
-        <md-list-item ng-repeat="it in ul.users">
-            <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-              <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-              {{it.name}}
+<body ng-app="videoApp" layout="row" ng-controller="playerCtrl">
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <md-toolbar class="md-whiteframe-z1">
+            <h1>Find Videos</h1>
+        </md-toolbar>
+        <div ng-include="'./src/player/searchList.html'"></div>
+    </md-sidenav>
+    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+        <md-toolbar layout="row" class="md-whiteframe-z1">
+            <md-button class="menu" hide-gt-sm ng-click="toggleList()" aria-label="Search Videos">
+                <md-icon md-svg-icon="menu"></md-icon>
             </md-button>
-        </md-list-item>
-      </md-list> -->
+            <h1>You Tuber!</h1>
+        </md-toolbar>
+        <div flex layout="column" ng-include="'./src/player/content.html'"></div>
+    </div>
 
-  </md-sidenav>
+    
 
-
-  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
-
-    <md-toolbar layout="row" class="md-whiteframe-z1">
-      <md-button class="menu" hide-gt-sm ng-click="toggleList()" aria-label="Show User List">
-        <md-icon md-svg-icon="menu" ></md-icon>
-      </md-button>
-      <h1>You Tuber!</h1>
-    </md-toolbar>
-
-    <div ng-include="'./src/player/content.html'"></div>
-  </div>
-
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-animate/angular-animate.js"></script>
     <script src="./bower_components/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
-
     <script src="./src/services/youtubeService.js"></script>
     <script src="./src/player/playerCtrl.js"></script>
     <script src="./src/app.js"></script>
-
     <script type="text/javasript">
-      function handleClientLoad() {
-        gapi.client.setApiKey(apiKey);
-      }
+        function handleClientLoad() { gapi.client.setApiKey(apiKey); }
     </script>
     <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+</body>
 
-  </body>
 </html>

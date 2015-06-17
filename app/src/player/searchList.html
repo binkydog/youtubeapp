@@ -1,1 +1,20 @@
-searchList.html
+<md-content layoyut="column" ng-submit="search()">
+    <form name="searchForm" ng-hide="!model.isAuthenticated">
+        <md-input-container>
+            <label>Search</label>
+            <input ng-model="model.searchTerm">
+        </md-input-container>
+    </form>
+
+</md-content>
+<md-list>
+    <md-list-item ng-repeat="vid in model.videos">
+    	<md-card ng-click="setSelected(vid)" ng-class="{'selected' : vid === model.selected }">
+    		<img ng-src="{{vid.snippet.thumbnails.default.url}}"/>
+    		<md-card-content>
+    		{{vid.snippet.title}}
+    		</md-card-content>
+    	</md-card>
+  </md-list-item>
+</md-list>
+

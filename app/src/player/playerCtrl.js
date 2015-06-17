@@ -3,23 +3,24 @@
     angular
         .module('player', ['ngMaterial', 'youtube'])
         .controller('playerCtrl', [
-            '$scope', 'youtubeService', 'apiConfig', '$mdSidenav', '$q',
+            '$scope', 'youtubeService', 'apiConfig', '$mdSidenav', '$q', '$timeout',
             playerCtrl
         ]);
 
 
-    function playerCtrl($scope, youtubeService, apiConfig, $mdSidenav, $q) {
+    function playerCtrl($scope, youtubeService, apiConfig, $mdSidenav, $q, $timeout) {
         var self = this;
 
         $scope.model = {
-          isAuthenticated: youtubeService.isAuthenticated
+            isAuthenticated: youtubeService.isAuthenticated,
+            searchTerm: ''
         }
 
         $scope.test = 'hello world';
 
         $scope.signIn = function() {
-            youtubeService.authenticate(apiConfig).then(function() {
-              $scope.model.isAuthenticated = youtubeService.isAuthenticated;  
+            youtubeService.authenticate(apiConfig, false).then(function() {
+                $scope.model.isAuthenticated = youtubeService.isAuthenticated;
             })
         };
 
@@ -28,8 +29,24 @@
             $mdSidenav('left').toggle();
         }
 
+        $scope.search = function() {
+            youtubeService.search($scope.model.searchTerm).then(function(data) {
+                $scope.model.videos = data.items;
+            });
+        }
+
+        $scope.setSelected = function(vid) {
+            $scope.selected = vid;
+            youtubeService.playVideo('player', vid.id.videoId);
+        }
+
+        // attempt to immediately authenticate
+        $timeout(function() {
+            youtubeService.authenticate(apiConfig, true).then(function() {
+                $scope.model.isAuthenticated = youtubeService.isAuthenticated;
+            })
+        }, 500);
 
     }
 
 })();
-
