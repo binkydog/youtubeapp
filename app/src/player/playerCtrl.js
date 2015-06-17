@@ -37,6 +37,7 @@
 
         $scope.setSelected = function(vid) {
             $scope.selected = vid;
+            $mdSidenav('left').close();
             youtubeService.playVideo('player', vid.id.videoId);
         }
 

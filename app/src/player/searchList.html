@@ -2,12 +2,13 @@
     <form name="searchForm" ng-hide="!model.isAuthenticated">
         <md-input-container>
             <label>Search</label>
-            <input ng-model="model.searchTerm">
+            <input class="search-input" ng-model="model.searchTerm">
         </md-input-container>
     </form>
 
 </md-content>
-<md-list>
+<div class="video-list">
+	<md-list>
     <md-list-item ng-repeat="vid in model.videos">
     	<md-card ng-click="setSelected(vid)" ng-class="{'selected' : vid === model.selected }">
     		<img ng-src="{{vid.snippet.thumbnails.default.url}}"/>
@@ -17,4 +18,6 @@
     	</md-card>
   </md-list-item>
 </md-list>
+</div>
+
 
