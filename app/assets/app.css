@@ -42,39 +42,10 @@ md-sidenav md-list {
     overflow: hidden;
 }
 
-
-/*#content .md-button.contact {
-    background-color: transparent;
-    border: none;
-    width: 48px;
-    height: 48px;
-    margin: 8px auto 16px 0;
-    position: absolute;
-    top: 10px;
-    right: 40px;
-}
-
-#content md-icon.avatar {
-    margin-top: 10px;
-}
-
-#content .md-button.contact > md-icon {
-    fill: black;
-    width: 36px;
-    height: 36px;
-}
-*/
 md-button.menuBtn > md-icon {
     fill: white;
     width: 24px;
     height: 24px;
-}
-
-#content .md-button.contact:active > md-icon {
-    background-color: #dadada;
-    border-radius: 75%;
-    padding: 4px;
-    transition: all 100ms ease-out 30ms;
 }
 
 #content img {
@@ -87,7 +58,6 @@ md-button.menuBtn > md-icon {
 .content-wrapper {
     position: relative;
 }
-/* Typography support coming in 0.8.0 */
 
 md-toolbar h1 {
     font-size: 1.250em;
@@ -132,4 +102,8 @@ md-toolbar button {
 .message {
     color:#f0f0f0;
     font-size: 18px;
+}
+
+md-card.selected {
+    color: rgb(0, 188, 212);
 }

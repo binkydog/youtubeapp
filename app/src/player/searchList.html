@@ -7,16 +7,14 @@
     </form>
 </md-content>
 <div class="video-list">
-	<md-list>
-    <md-list-item ng-repeat="vid in model.videos">
-    	<md-card ng-click="setSelected(vid)" ng-class="{'selected' : vid === model.selected }">
-    		<img ng-src="{{vid.snippet.thumbnails.default.url}}"/>
-    		<md-card-content>
-    		{{vid.snippet.title}}
-    		</md-card-content>
-    	</md-card>
-  </md-list-item>
-</md-list>
+    <md-list>
+        <md-list-item ng-repeat="vid in model.videos">
+            <md-card ng-click="setSelected(vid)" ng-class="{'selected' : vid === selected }">
+                <img ng-src="{{vid.snippet.thumbnails.default.url}}" />
+                <md-card-content>
+                    {{vid.snippet.title}}
+                </md-card-content>
+            </md-card>
+        </md-list-item>
+    </md-list>
 </div>
-
-
