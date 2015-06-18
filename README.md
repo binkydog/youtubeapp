@@ -5,6 +5,7 @@ App that authenticats with the Google API and let's you search for videos
 
 To run:
 > cd app
+
 > live-server
 
 
