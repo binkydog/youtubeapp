@@ -11,7 +11,7 @@
         <md-list-item ng-repeat="vid in model.videos">
             <md-card ng-click="setSelected(vid)" ng-class="{'selected' : vid === selected }">
                 <img ng-src="{{vid.snippet.thumbnails.default.url}}" />
-                <md-card-content>
+                <md-card-content md-ink-ripple>
                     {{vid.snippet.title}}
                 </md-card-content>
             </md-card>
