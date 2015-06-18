@@ -1,4 +1,6 @@
 <md-content layout="column" layout-align="center center" flex id="content">
     <md-button class="md-raised md-primary md-button md-default-theme" ng-click="signIn()" ng-hide="model.isAuthenticated">Sign in to You Tube</md-button>
+
+    <div class="message" ng-show="!selected && model.isAuthenticated">Search for a video in the sidebar</div>
     <div flex id="player" ng-hide="!model.isAuthenticated"></div>
 </md-content>

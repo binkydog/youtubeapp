@@ -1,0 +1,15 @@
+<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <md-toolbar class="md-whiteframe-z1">
+        <h1>Find Videos</h1>
+    </md-toolbar>
+    <div ng-include="'./src/player/searchList.html'"></div>
+</md-sidenav>
+<div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+        <md-button class="menu" hide-gt-sm ng-click="toggleList()" aria-label="Search Videos">
+            <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
+        <h1>You Tuber!</h1>
+    </md-toolbar>
+    <div flex layout="column" ng-include="'./src/player/content.html'"></div>
+</div>
