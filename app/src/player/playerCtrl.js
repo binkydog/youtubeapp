@@ -16,8 +16,6 @@
             searchTerm: ''
         }
 
-        $scope.test = 'hello world';
-
         $scope.signIn = function() {
             youtubeService.authenticate(apiConfig, false).then(function() {
                 $scope.model.isAuthenticated = youtubeService.isAuthenticated;
